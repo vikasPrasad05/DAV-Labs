@@ -1,0 +1,73 @@
+import {
+  IconAppWindow,
+  IconBrandInstagram,
+  IconSignature,
+  IconVideo,
+  IconRocket,
+} from "@tabler/icons-react";
+
+export function Services() {
+  return (
+    <section id="services" className="max-w-7xl mx-auto px-4 py-20 relative z-10">
+      <h2 className="font-heading text-3xl md:text-5xl font-bold text-white text-center mb-12">
+        Our Services
+      </h2>
+      
+      {/* Grid Layout: 3 Columns */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        
+        {/* 1. MAIN FEATURE: Website Development (Takes up 2x2 space) */}
+        <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/50 p-8 hover:border-cyan-500/50 transition-all duration-500 group">
+            <div className="absolute top-4 right-4 text-zinc-500 group-hover:text-cyan-500 transition-colors duration-500">
+                <IconAppWindow size={32} />
+            </div>
+            <div className="mt-24 relative z-10">
+                <h3 className="font-heading text-2xl font-bold text-white mb-2">Website Development</h3>
+                <p className="text-zinc-400">
+                    From <strong>Modern Landing Pages</strong> that convert to complex web applications. 
+                    We build high-performance digital infrastructure using Next.js.
+                </p>
+            </div>
+            {/* Visual Glow */}
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-500/20 blur-[60px] rounded-full group-hover:bg-cyan-500/30 transition-all duration-500" />
+        </div>
+
+        {/* 2. SOCIAL MEDIA (Right Top) */}
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/50 p-6 hover:border-pink-500/50 transition-all duration-500 group">
+            <IconBrandInstagram className="text-zinc-500 mb-4 group-hover:text-pink-500 transition-colors" size={32} />
+            <h3 className="font-heading text-lg font-bold text-white">Social Media Ads</h3>
+            <p className="text-zinc-400 text-sm mt-2">Daily advertising management to keep your audience engaged.</p>
+            <div className="absolute inset-0 bg-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        </div>
+
+        {/* 3. BRANDING (Right Middle) */}
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/50 p-6 hover:border-yellow-500/50 transition-all duration-500 group">
+            <IconSignature className="text-zinc-500 mb-4 group-hover:text-yellow-500 transition-colors" size={32} />
+            <h3 className="font-heading text-lg font-bold text-white">Branding</h3>
+            <p className="text-zinc-400 text-sm mt-2">Identity, Strategy & Promotions that stick.</p>
+            <div className="absolute inset-0 bg-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        </div>
+        
+         {/* 4. DIGITAL MARKETING (Bottom Wide) */}
+         <div className="md:col-span-2 relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/50 p-6 hover:border-green-500/50 transition-all duration-500 group flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                 <h3 className="font-heading text-xl font-bold text-white">Digital Marketing Solutions</h3>
+                 <p className="text-zinc-400 text-sm mt-1">Complete SEO, SEM, and growth strategies.</p>
+            </div>
+            <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-green-500/20 transition-colors">
+                <IconRocket className="text-zinc-400 group-hover:text-green-500 transition-colors" size={24} />
+            </div>
+        </div>
+
+        {/* 5. CONTENT CREATION (Bottom Right) */}
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/50 p-6 hover:border-purple-500/50 transition-all duration-500 group">
+            <IconVideo className="text-zinc-500 mb-4 group-hover:text-purple-500 transition-colors" size={32} />
+            <h3 className="font-heading text-lg font-bold text-white">Content Creation</h3>
+            <p className="text-zinc-400 text-sm mt-2">Graphic design & professional video editing.</p>
+            <div className="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        </div>
+
+      </div>
+    </section>
+  );
+}
