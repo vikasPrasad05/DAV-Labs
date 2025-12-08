@@ -7,13 +7,14 @@ import {
   IconRocket,
 } from "@tabler/icons-react";
 import { TiltCard } from "@/components/ui/TileCard"; // Import the new component
+import { TextReveal } from "../ui/TextReveal";
 
 export function Services() {
   return (
     <section id="services" className="max-w-7xl mx-auto px-4 py-20 relative z-10">
-      <h2 className="font-heading text-3xl md:text-5xl font-bold text-white text-center mb-12">
-        Our Services
-      </h2>
+      <TextReveal className="font-heading text-3xl md:text-5xl font-bold text-white text-center mb-12 justify-center">
+  Our Services
+</TextReveal>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto perspective-1000">
         

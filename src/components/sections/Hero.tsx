@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Spotlight } from "@/components/ui/Spotlight";
 import { Button } from "@/components/ui/button";
 import { TextHoverEffect } from "../ui/text-hover-effect";
+import { BackgroundBeams } from "../ui/background-beams";
 
 export function Hero() {
   return (
@@ -36,7 +37,7 @@ export function Hero() {
         </div>
         
       </div>
-      
+      <BackgroundBeams/>
     </div>
   );
 }

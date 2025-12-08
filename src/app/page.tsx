@@ -6,6 +6,9 @@ import { Team } from "@/components/sections/Team";
 import { Contact } from "@/components/sections/Contact"; // New import
 import { Footer } from "@/components/sections/Footer";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import { InfiniteMovingCardsDemo } from "@/components/ace-com/InfitiniteMovingCards";
+import { GoogleGeminiEffectDemo } from "@/components/ace-com/GoogleGeminiEffectDemo";
+InfiniteMovingCardsDemo
 
 
 export default function Home() {
@@ -15,10 +18,14 @@ export default function Home() {
        
       <Hero />
      <TextHoverEffect text="DAV Labs"/>
+     
       <Services />
       <Work />
+      <InfiniteMovingCardsDemo />
+      
       <Team />
       <Contact />
+      <GoogleGeminiEffectDemo/>
       <Footer />
      
     </main>

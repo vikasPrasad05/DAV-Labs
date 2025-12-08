@@ -4,6 +4,7 @@ import "./globals.css";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { FluidCursor } from "@/components/ui/FluidCursor";
 import SmoothScroll from "@/components/utils/SmoothScroll";
+import { GrainTexture } from "@/components/ui/GrainTexture";
 
 
 const spaceGrotesk = Space_Grotesk({ 
@@ -31,8 +32,10 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`${spaceGrotesk.variable} ${inter.variable} font-sans antialiased bg-black text-white`}>
         <SmoothScroll />
+        <GrainTexture />
         <FluidCursor />
         {children}
+        
         <WhatsAppButton/>
       </body>
     </html>

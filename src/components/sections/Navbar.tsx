@@ -1,10 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react"; // These come with lucide-react (installed by Shadcn)
+import { Menu, X } from "lucide-react";
+import { HyperText } from "@/components/ui/HyperText";
+import Magnetic from "@/components/ui/Magnetic";
+import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  // Track which index is currently being hovered
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const navItems = [
     { name: "Home", link: "#hero" },
@@ -18,20 +23,44 @@ export function Navbar() {
       <div className="relative rounded-full border border-white/10 bg-black/50 backdrop-blur-md shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] px-8 py-4 flex items-center justify-between">
         
         {/* Logo */}
-        <div className="text-white font-bold text-lg tracking-wider cursor-pointer">
-          DAV <span className="text-cyan-500">Labs</span>
-        </div>
+        <Link href="/" className="text-white font-heading font-bold text-xl tracking-wider cursor-pointer z-50">
+          <HyperText text="DAV Labs" />
+        </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.link}
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-            >
-              {item.name}
-            </Link>
+        {/* Desktop Menu with Sliding Pill + Magnetic */}
+        <div 
+          className="hidden md:flex space-x-2"
+          onMouseLeave={() => setHoveredIndex(null)} // Reset when mouse leaves the navbar area
+        >
+          {navItems.map((item, index) => (
+            <Magnetic key={item.name}>
+                <Link
+                href={item.link}
+                className="relative px-4 py-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300"
+                onMouseEnter={() => setHoveredIndex(index)}
+                >
+                    {/* THE SLIDING PILL */}
+                    <AnimatePresence>
+                        {hoveredIndex === index && (
+                            <motion.span
+                                className="absolute inset-0 rounded-full bg-zinc-800/80 -z-10"
+                                layoutId="hoverBackground" // This is the magic key for sliding
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1, transition: { duration: 0.15 } }}
+                                exit={{ opacity: 0, transition: { duration: 0.15, delay: 0.2 } }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 350,
+                                    damping: 30,
+                                }}
+                            />
+                        )}
+                    </AnimatePresence>
+
+                    {/* The Text */}
+                    <span className="relative z-10">{item.name}</span>
+                </Link>
+            </Magnetic>
           ))}
         </div>
 

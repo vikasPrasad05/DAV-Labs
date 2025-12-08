@@ -1,27 +1,32 @@
+"use client";
+import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { TextReveal } from "../ui/TextReveal";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 const projects = [
   {
-    title: "FinTech Dashboard",
+    title: "Remote Work Collaboration",
     category: "Web App",
-    description: "Real-time financial data visualization for a Fortune 500 bank.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop", 
-    color: "from-blue-500 to-cyan-500"
+    description: "A Complete Solution for companies which operate online.",
+    image: "/assets/teletrabago.png", 
+    link: "https://teletrabago.vercel.app/"
   },
   {
-    title: "E-Commerce Rebrand",
-    category: "Design System",
-    description: "A complete overhaul of a fashion giant's digital presence.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-    color: "from-violet-500 to-purple-500"
+    title: "Course Selling Platform",
+    category: "Web App",
+    description: "A couse selling platform where individuals can create their courses and sell",
+    image: "/assets/kosu.png",
+    link: "https://kosu-frontend.vercel.app/"
   },
   {
-    title: "AI Chat Interface",
-    category: "SaaS Product",
-    description: "Generative AI interface with voice capabilities.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2532&auto=format&fit=crop",
-    color: "from-orange-500 to-red-500"
+    title: "Cloud Storage",
+    category: "Web App",
+    description: "A Simple modern cloud storage service",
+    image: "/assets/cloudsaf.png",
+    link: "https://cloudsaf-client.vercel.app/"
   }
 ];
 
@@ -29,44 +34,75 @@ export function Work() {
   return (
     <section id="work" className="py-24 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-16">
-          Selected Work
-        </h2>
         
+        {/* Section Title */}
+        <TextReveal className="font-heading text-3xl md:text-5xl font-bold text-white mb-16">
+          Selected Work
+        </TextReveal>
+        
+        {/* 3D Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
-            <div key={idx} className="group relative rounded-3xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-zinc-600 transition-all duration-500 cursor-pointer">
-              
-              {/* Image Container */}
-              <div className="relative h-64 w-full overflow-hidden">
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10" />
-                <Image 
-                    src={project.image} 
-                    alt={project.title} 
-                    fill 
-                    className="object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
+            <CardContainer key={idx} className="inter-var w-full">
+              <CardBody className="bg-zinc-900 relative group/card border-white/10 w-full h-auto rounded-3xl p-6 border hover:border-cyan-500/50 transition-colors duration-500">
+                
+                {/* 1. Title (Pops out slightly) */}
+                <CardItem
+                  translateZ="50"
+                  className="text-xl font-bold text-white font-heading"
+                >
+                  {project.title}
+                </CardItem>
 
-              {/* Content */}
-              <div className="p-6 relative z-20">
-                <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium text-white mb-4 bg-linear-to-r ${project.color} opacity-80`}>
+                {/* 2. Description (Pops out slightly more) */}
+                <CardItem
+                  as="p"
+                  translateZ="60"
+                  className="text-zinc-400 text-sm max-w-sm mt-2"
+                >
+                  {project.description}
+                </CardItem>
+
+                {/* 3. Image (Pops out significantly - 100px) */}
+                <CardItem translateZ="100" className="w-full mt-4">
+                  <div className="relative w-full h-60 rounded-xl overflow-hidden group-hover/card:shadow-xl">
+                    <Image
+                      src={project.image}
+                      height="1000"
+                      width="1000"
+                      className="h-full w-full object-cover rounded-xl group-hover/card:scale-110 transition-transform duration-500"
+                      alt={project.title}
+                    />
+                    {/* Overlay to darken image slightly until hover */}
+                    <div className="absolute inset-0 bg-black/20 group-hover/card:bg-transparent transition-colors" />
+                  </div>
+                </CardItem>
+
+                {/* 4. Footer: Category Badge & Button */}
+                <div className="flex justify-between items-center mt-10">
+                  
+                  {/* Category Badge */}
+                  <CardItem
+                    translateZ={20}
+                    className="px-4 py-2 rounded-full bg-zinc-800 text-xs font-bold text-white border border-white/5"
+                  >
                     {project.category}
+                  </CardItem>
+                  
+                  {/* Link Button */}
+                  <CardItem
+                    translateZ={20}
+                    as={Link}
+                    href={project.link}
+                    target="_blank"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-xs font-bold hover:bg-cyan-500 hover:text-white transition-colors"
+                  >
+                    View Project <ArrowUpRight className="w-3 h-3" />
+                  </CardItem>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                    {project.title}
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                    {project.description}
-                </p>
-                <div className="flex items-center text-sm font-medium text-white group-hover:gap-2 transition-all">
-                    View Case Study <ArrowUpRight className="ml-1 w-4 h-4" />
-                </div>
-              </div>
 
-              {/* Hover Glow Effect */}
-              <div className={`absolute inset-0 bg-linear-to-br ${project.color} opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity duration-500`} />
-            </div>
+              </CardBody>
+            </CardContainer>
           ))}
         </div>
       </div>

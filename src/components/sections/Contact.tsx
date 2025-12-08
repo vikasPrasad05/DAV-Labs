@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Send, CheckCircle2, Loader2, AlertCircle, ChevronDown } from "lucide-react";
+import { TextReveal } from "../ui/TextReveal";
 
 export function Contact() {
   const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -59,9 +60,9 @@ export function Contact() {
 
       <div className="max-w-xl mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-4">
-            Let's Build the Future
-          </h2>
+          <TextReveal className="font-heading text-3xl md:text-5xl font-bold text-white mb-4 justify-center">
+  Let's Build the Future
+</TextReveal>
           <p className="text-zinc-400">
             Have a project in mind? We are ready to scale it.
           </p>
