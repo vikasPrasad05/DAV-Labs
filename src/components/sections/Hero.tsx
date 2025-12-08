@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Spotlight } from "@/components/ui/Spotlight";
 import { Button } from "@/components/ui/button";
+import { TextHoverEffect } from "../ui/text-hover-effect";
 
 export function Hero() {
   return (
@@ -31,9 +32,11 @@ export function Hero() {
               View Work
             </Link>
           </Button>
+           
         </div>
         
       </div>
+      
     </div>
   );
 }

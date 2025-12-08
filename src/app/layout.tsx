@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { FluidCursor } from "@/components/ui/FluidCursor";
+import SmoothScroll from "@/components/utils/SmoothScroll";
+
 
 const spaceGrotesk = Space_Grotesk({ 
   subsets: ["latin"], 
@@ -27,6 +30,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${spaceGrotesk.variable} ${inter.variable} font-sans antialiased bg-black text-white`}>
+        <SmoothScroll />
+        <FluidCursor />
         {children}
         <WhatsAppButton/>
       </body>

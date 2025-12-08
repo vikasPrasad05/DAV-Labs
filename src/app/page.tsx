@@ -5,17 +5,22 @@ import { Work } from "@/components/sections/Work";
 import { Team } from "@/components/sections/Team";
 import { Contact } from "@/components/sections/Contact"; // New import
 import { Footer } from "@/components/sections/Footer";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black antialiased selection:bg-cyan-500 selection:text-cyan-900">
       <Navbar />
+       
       <Hero />
+     <TextHoverEffect text="DAV Labs"/>
       <Services />
       <Work />
       <Team />
       <Contact />
       <Footer />
+     
     </main>
   );
 }
