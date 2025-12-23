@@ -17,7 +17,7 @@ export default function Home() {
       <Navbar />
 
       <Hero />
-      <TextHoverEffect text="DAV Labs" />
+
 
       <Services />
       <Work />
@@ -25,6 +25,7 @@ export default function Home() {
 
       <Team />
       <Contact />
+      <TextHoverEffect text="DAV Labs" />
       <GoogleGeminiEffectDemo />
       <Footer />
 

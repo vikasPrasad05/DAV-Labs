@@ -16,11 +16,12 @@ export function Contact() {
   });
 
   const services = [
-    "Custom Website Development",
-    "Social Media Advertising",
-    "Branding & Promotions",
-    "Content Creation",
-    "Digital Marketing",
+    "Modern Landing Page",
+    "Custom Web Developent",
+    "Custom App Development",
+    "Running Social Media Ads",
+    "Social Media Management and content creation",
+    "Sopify Store Development"
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
